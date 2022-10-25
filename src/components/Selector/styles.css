@@ -1,0 +1,22 @@
+.selector-black-box-up {
+	border: 2px solid black;
+	border-bottom: none;
+	border-right: none;
+}
+
+.selector-black-box-down {
+	border: 2px solid black;
+	border-right: none;
+}
+
+.selector-end {
+	border-right: 2px solid black;
+}
+
+.selector-wrapper {
+	width: max-content;
+}
+
+.selector-wrapper:hover {
+	background-color: red;
+}
