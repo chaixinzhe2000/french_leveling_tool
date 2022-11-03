@@ -2,11 +2,13 @@
 	border: 2px solid black;
 	border-bottom: none;
 	border-right: none;
+	cursor: pointer;
 }
 
 .selector-black-box-down {
 	border: 2px solid black;
 	border-right: none;
+	cursor: pointer;
 }
 
 .selector-end {
@@ -14,9 +16,15 @@
 }
 
 .selector-wrapper {
-	width: max-content;
+	width: 100%;
+}
+
+.selector-wrapper-selected {
+	background-color: rgb(12, 12, 12);
+	color: white;
+	width: 100%;
 }
 
 .selector-wrapper:hover {
-	background-color: red;
+	background-color: rgb(161, 186, 241);
 }
