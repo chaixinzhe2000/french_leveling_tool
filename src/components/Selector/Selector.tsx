@@ -1,31 +1,33 @@
 import * as React from "react"
-import { useRecoilState } from "recoil"
-import { ACTFLLevelState } from "../atom"
-import { ACTFLLevel } from "../levels"
+import { useRecoilState, useSetRecoilState } from "recoil"
+import { ACTFLLevelState, CEFRLLevelState } from "../atom"
+import { ACTFLLevel, CEFRLLevel } from "../levels"
 import "./styles.css"
 
 interface SelectorProps {
 	ACTFL: ACTFLLevel
+	CEFRL: CEFRLLevel
 	isLast?: boolean
 }
 
 export const Selector = (props: SelectorProps) => {
 
-	const { isLast, ACTFL } = props
-	const [selectedLevel, setSelectedLevel] = useRecoilState(ACTFLLevelState)
+	const { isLast, ACTFL, CEFRL } = props
+	const [selectedACTFLLevel, setSelectedACTFLLevel] = useRecoilState(ACTFLLevelState)
+	const setSelectedCEFRLLevel = useSetRecoilState(CEFRLLevelState)
 
-	const isSelected = selectedLevel === ACTFL
+	const isSelected = selectedACTFLLevel === ACTFL
 
 	return (
 		<div
 			className={isSelected ? "selector-wrapper-selected" : "selector-wrapper"}
-			onClick={() => { setSelectedLevel(ACTFL) }}
+			onClick={() => { setSelectedACTFLLevel(ACTFL); setSelectedCEFRLLevel(CEFRL) }}
 		>
 			<div className={isLast ? "selector-black-box-up selector-end" : "selector-black-box-up"}>
 				{ACTFL}
 			</div>
 			<div className={isLast ? "selector-black-box-down selector-end" : "selector-black-box-down"}>
-				B1.2
+				{CEFRL === CEFRLLevel.UNDEFINED ? "-" : CEFRL}
 			</div>
 		</div >
 	)

@@ -1,4 +1,30 @@
 .selector-list-wrapper {
 	display: flex;
-	margin: 50px;
+	width: 100%;
+}
+
+.box-up {
+	border: 2px solid black;
+	border-bottom: none;
+	border-right: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+}
+
+.box-down {
+	border: 2px solid black;
+	border-right: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+}
+
+.selector-title-wrapper {
+	width: 100%;
+	height: 90px;
 }

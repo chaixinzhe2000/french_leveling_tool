@@ -1,0 +1,19 @@
+body {
+	background-color: #eeece4 !important;
+	font-family: "DM Sans", sans-serif;
+}
+
+.root-wrapper {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.header-wrapper {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	align-items: center;
+}

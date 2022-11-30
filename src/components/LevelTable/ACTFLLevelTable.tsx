@@ -8,7 +8,7 @@ interface SelectorProps {
 	isLast?: boolean
 }
 
-export const LevelTable = (props: SelectorProps) => {
+export const ACTFLLevelTable = (props: SelectorProps) => {
 
 	const selectedLevel = useRecoilValue(ACTFLLevelState)
 
@@ -90,6 +90,6 @@ export const LevelTable = (props: SelectorProps) => {
 					<td className="tg-0lax"></td>
 				</tr>
 			</tbody>
-		</table >
+		</table>
 	)
 }

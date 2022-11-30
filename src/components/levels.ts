@@ -10,3 +10,15 @@ export enum ACTFLLevel {
 	ADVANCED_HIGH = "A.H",
 	SUPERIOR = "S"
 }
+
+export enum CEFRLLevel {
+	BREAKTHROUGH = "A1",
+	WAYSTAGE = "A2",
+	THRESHOLD_ONE = "B1.1",
+	THRESHOLD_TWO = "B1.2",
+	VANTAGE_ONE = "B2.1",
+	VANTAGE_TWO = "B2.2",
+	PROFICIENCY = "C1",
+	MASTERY = "C2",
+	UNDEFINED = "UNDEFINED"
+}
