@@ -172,7 +172,7 @@ export const MainTable = () => {
 				<tr>
 					<td className="tg-73oq">{ACTFLContentOne}</td>
 					<td className="tg-73oq">{ACTFLContentTwo}</td>
-					<td className="tg-0lax">{ACTFLContentThree}</td>
+					<td className="tg-73oq">{ACTFLContentThree}</td>
 				</tr>
 				<tr>
 					<td className="tg-mqa1 cefrl-header" colSpan={3}>★ <b>CEFRL</b> (<b>C</b>ommon <b>E</b>uropean <b>F</b>ramework of <b>R</b>eference for <b>L</b>anguages)</td>
@@ -183,9 +183,9 @@ export const MainTable = () => {
 					<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex + 1]}</td>
 				</tr>
 				<tr>
-					<td className="tg-0lax">{CEFRLContentOne}</td>
-					<td className="tg-0lax">{CEFRLContentTwo}</td>
-					<td className="tg-0lax">{CEFRLContentThree}</td>
+					<td className="tg-73oq">{CEFRLContentOne}</td>
+					<td className="tg-73oq">{CEFRLContentTwo}</td>
+					<td className="tg-73oq">{CEFRLContentThree}</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,4 +1,6 @@
 .radio-wrapper {
 	display: flex;
 	flex-direction: column;
+	font-family: "Libre Franklin", sans-serif;
+font-weight: 500;
 }

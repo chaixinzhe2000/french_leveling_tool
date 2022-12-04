@@ -12,10 +12,10 @@ export const ModeSelector = () => {
 	return (
 		<RadioGroup defaultValue={TestArea.READING} onChange={(e) => setTestArea(e as TestArea)}>
 			<div className="radio-wrapper">
-				<Radio value={TestArea.READING} size='sm' onClick={() => setTestArea(TestArea.READING)}>Reading</Radio>
-				<Radio value={TestArea.LISTENING} size='sm' onClick={() => setTestArea(TestArea.LISTENING)}>Listening</Radio>
-				<Radio value={TestArea.SPEAKING} size='sm' onClick={() => setTestArea(TestArea.READING)}>Speaking</Radio>
-				<Radio value={TestArea.WRITING} size='sm' onClick={() => setTestArea(TestArea.READING)}>Writing</Radio>
+				<Radio value={TestArea.READING} size='sm' onClick={() => setTestArea(TestArea.READING)} borderColor="black">Reading</Radio>
+				<Radio value={TestArea.LISTENING} size='sm' onClick={() => setTestArea(TestArea.LISTENING)} borderColor="black">Listening</Radio>
+				<Radio value={TestArea.SPEAKING} size='sm' onClick={() => setTestArea(TestArea.READING)} borderColor="black">Speaking</Radio>
+				<Radio value={TestArea.WRITING} size='sm' onClick={() => setTestArea(TestArea.READING)} borderColor="black">Writing</Radio>
 			</div>
 		</RadioGroup>
 	)
