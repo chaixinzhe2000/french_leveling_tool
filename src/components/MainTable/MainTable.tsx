@@ -148,6 +148,7 @@ export const MainTable = () => {
 
 	useEffect(() => {
 		setLevel()
+		// eslint-disable-next-line react-hooks/exhaustive-deps	
 	}, [selectedACTFLLevel])
 
 	return (

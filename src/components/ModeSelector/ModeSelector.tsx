@@ -1,13 +1,13 @@
 import { RadioGroup, Radio } from "@chakra-ui/react"
 import * as React from "react"
-import { useRecoilState } from "recoil"
+import { useSetRecoilState } from "recoil"
 import { TestAreaState } from "../atom"
 import { TestArea } from "../levels"
 import "./styles.css"
 
 export const ModeSelector = () => {
 
-	const [testArea, setTestArea] = useRecoilState(TestAreaState)
+	const setTestArea = useSetRecoilState(TestAreaState)
 
 	return (
 		<RadioGroup defaultValue={TestArea.READING} onChange={(e) => setTestArea(e as TestArea)}>

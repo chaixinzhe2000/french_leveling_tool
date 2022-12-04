@@ -1,7 +1,5 @@
 import * as React from "react"
-import {
-	ChakraProvider, Radio, RadioGroup, Stack,
-} from "@chakra-ui/react"
+import { ChakraProvider} from "@chakra-ui/react"
 import { SelectorList } from "./components/SelectorList/SelectorList"
 import { RecoilRoot } from "recoil"
 import { ACTFLLevelTable } from "./components/LevelTable/ACTFLLevelTable"
