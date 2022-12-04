@@ -8,6 +8,7 @@ import { ACTFLLevelTable } from "./components/LevelTable/ACTFLLevelTable"
 import { CEFRLLevelTable } from "./components/LevelTable/CEFRLLevelTable"
 import "./App.css"
 import { ModeSelector } from "./components/ModeSelector/ModeSelector"
+import { MainTable } from "./components/MainTable/MainTable"
 
 export const App = () => (
 	<ChakraProvider>
@@ -17,10 +18,13 @@ export const App = () => (
 					<SelectorList />
 					<ModeSelector />
 				</div>
-				<div>
-					<ACTFLLevelTable />
-					<CEFRLLevelTable />
-				</div>
+				<div className="table-flex">
+					<div>
+						<ACTFLLevelTable />
+						<CEFRLLevelTable />
+					</div>
+					<MainTable />
+				</div>   
 			</div>
 		</RecoilRoot>
 	</ChakraProvider>

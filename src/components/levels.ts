@@ -22,3 +22,10 @@ export enum CEFRLLevel {
 	MASTERY = "C2",
 	UNDEFINED = "UNDEFINED"
 }
+
+export enum TestArea {
+	SPEAKING = "SPEAKING",
+	LISTENING = "LISTENING",
+	WRITING = "WRITING",
+	READING = "READING"
+}

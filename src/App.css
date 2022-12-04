@@ -17,3 +17,8 @@ body {
 	gap: 30px;
 	align-items: center;
 }
+
+.table-flex {
+	display: flex;
+	gap: 30px;
+}
