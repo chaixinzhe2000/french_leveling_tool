@@ -26,9 +26,9 @@ export const CEFRLLevelTable = (props: SelectorProps) => {
 
 	return (
 		<table className="tg">
-			<thead>
+			<thead className="cefrl-table-header-wrapper">
 				<tr>
-					<th className="tg-0pky" colSpan={1}>* CEFRL Levels</th>
+					<th className="tg-0pky level-table-heading" colSpan={1}>* CEFRL Levels</th>
 				</tr>
 			</thead>
 			<tbody>

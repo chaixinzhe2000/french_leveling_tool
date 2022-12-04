@@ -155,17 +155,19 @@ export const MainTable = () => {
 		<table className="tg table-wrapper">
 			<thead>
 				<tr>
-					<th className="tg-wp8o" colSpan={3}>{testAreaString}</th>
+					<th className="tg-wp8o main-table-header" colSpan={3}>
+						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>✵ Interpersonal Communication / ★ Spoken Interaction</p>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td className="tg-mqa1" colSpan={3}>ACTFL (American Council on the Teaching of Foreign Languages)</td>
+					<td className="tg-mqa1 actfl-header" colSpan={3}>✵ <b>ACTFL</b> (<b>A</b>merican <b>C</b>ouncil on the <b>T</b>eaching of <b>F</b>oreign <b>L</b>anguages)</td>
 				</tr>
 				<tr>
-					<td className="tg-wp8o">{ACTFLLevelHeadingArray[levelIndex - 1]}</td>
-					<td className="tg-wp8o">{ACTFLLevelHeadingArray[levelIndex]}</td>
-					<td className="tg-baqh">{ACTFLLevelHeadingArray[levelIndex + 1]}</td>
+					<td className="tg-wp8o actfl-level-one">{ACTFLLevelHeadingArray[levelIndex - 1]}</td>
+					<td className="tg-wp8o actfl-level-one selected-cell">{ACTFLLevelHeadingArray[levelIndex]}</td>
+					<td className="tg-baqh actfl-level-one">{ACTFLLevelHeadingArray[levelIndex + 1]}</td>
 				</tr>
 				<tr>
 					<td className="tg-73oq">{ACTFLContentOne}</td>
@@ -173,12 +175,12 @@ export const MainTable = () => {
 					<td className="tg-0lax">{ACTFLContentThree}</td>
 				</tr>
 				<tr>
-					<td className="tg-wp8o" colSpan={3}><span>CEFRL (Common European Framework of Reference for Languages)</span></td>
+					<td className="tg-mqa1 cefrl-header" colSpan={3}>★ <b>CEFRL</b> (<b>C</b>ommon <b>E</b>uropean <b>F</b>ramework of <b>R</b>eference for <b>L</b>anguages)</td>
 				</tr>
 				<tr>
-					<td className="tg-baqh">{CEFRLLevelHeadingArray[levelIndex - 1]}</td>
-					<td className="tg-baqh">{CEFRLLevelHeadingArray[levelIndex]}</td>
-					<td className="tg-baqh">{CEFRLLevelHeadingArray[levelIndex + 1]}</td>
+					<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex - 1]}</td>
+					<td className="tg-baqh cefrl-level-one selected-cell">{CEFRLLevelHeadingArray[levelIndex]}</td>
+					<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex + 1]}</td>
 				</tr>
 				<tr>
 					<td className="tg-0lax">{CEFRLContentOne}</td>

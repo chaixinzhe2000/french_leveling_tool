@@ -10,10 +10,10 @@ export const SelectorList = () => {
 			<div
 				className="selector-title-wrapper">
 				<b className="box-up">
-					ACTFL
+					✵ ACTFL
 				</b>
 				<b className="box-down">
-					CEFRL
+					★ CEFRL
 				</b>
 			</div >
 			<Selector ACTFL={ACTFLLevel.NOVICE_LOW} CEFRL={CEFRLLevel.UNDEFINED} />

@@ -29,9 +29,9 @@ export const ACTFLLevelTable = (props: SelectorProps) => {
 
 	return (
 		<table className="tg">
-			<thead>
+			<thead className="actfl-table-header-wrapper">
 				<tr>
-					<th className="tg-0pky" colSpan={2}>* ACTFL Levels</th>
+					<th className="tg-0pky level-table-heading" colSpan={2}>✵ ACTFL Levels</th>
 				</tr>
 			</thead>
 			<tbody>

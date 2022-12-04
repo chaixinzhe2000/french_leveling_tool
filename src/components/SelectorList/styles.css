@@ -4,24 +4,24 @@
 }
 
 .box-up {
-	border: 2px solid black;
-	border-bottom: none;
-	border-right: none;
-	cursor: pointer;
+	border: 1px solid white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 50%;
+	background-color: #77a2bb;
+	color: white;
+	font-weight: 800;
 }
 
 .box-down {
-	border: 2px solid black;
-	border-right: none;
-	cursor: pointer;
+	border: 1px solid white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 50%;
+	background-color: #d5dfe6;
+	font-weight: 800;
 }
 
 .selector-title-wrapper {
