@@ -1,4 +1,4 @@
-import { RadioGroup, Stack, Radio } from "@chakra-ui/react"
+import { RadioGroup, Radio } from "@chakra-ui/react"
 import * as React from "react"
 import { useRecoilState } from "recoil"
 import { TestAreaState } from "../atom"
