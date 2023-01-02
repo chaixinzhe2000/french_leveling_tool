@@ -2,7 +2,7 @@ import * as React from "react"
 import { useEffect, useState } from "react"
 import { useRecoilValue } from "recoil"
 import { ACTFLLevelState, TestAreaState } from "../atom"
-import { ACTFLContentListening, ACTFLContentReading, ACTFLContentSpeaking, ACTFLContentWriting, CEFRLContentListening, CEFRLContentReading, CEFRLContentSpeaking, CEFRLContentWriting } from "../content"
+import { ACTFLContentListeningRichText, ACTFLContentReadingRichText, ACTFLContentSpeakingRichText, ACTFLContentWritingRichText, CEFRLContentListeningRichText, CEFRLContentReadingRichText, CEFRLContentSpeakingRichText, CEFRLContentWritingRichText } from "../content"
 import { ACTFLLevel, TestArea } from "../levels"
 import "./styles.css"
 
@@ -13,13 +13,13 @@ export const MainTable = () => {
 
 	const [testAreaString, setTestAreaString]: [string, any] = useState(selectedTestArea)
 
-	const [ACTFLContentOne, setACTFLContentOne]: [string, any] = useState("")
-	const [ACTFLContentTwo, setACTFLContentTwo]: [string, any] = useState("")
-	const [ACTFLContentThree, setACTFLContentThree]: [string, any] = useState("")
+	const [ACTFLContentOne, setACTFLContentOne]: [React.ReactElement, any] = useState(<></>)
+	const [ACTFLContentTwo, setACTFLContentTwo]: [React.ReactElement, any] = useState(<></>)
+	const [ACTFLContentThree, setACTFLContentThree]: [React.ReactElement, any] = useState(<></>)
 
-	const [CEFRLContentOne, setCEFRLContentOne]: [string, any] = useState("")
-	const [CEFRLContentTwo, setCEFRLContentTwo]: [string, any] = useState("")
-	const [CEFRLContentThree, setCEFRLContentThree]: [string, any] = useState("")
+	const [CEFRLContentOne, setCEFRLContentOne]: [React.ReactElement, any] = useState(<></>)
+	const [CEFRLContentTwo, setCEFRLContentTwo]: [React.ReactElement, any] = useState(<></>)
+	const [CEFRLContentThree, setCEFRLContentThree]: [React.ReactElement, any] = useState(<></>)
 
 	const [levelIndex, setLevelIndex]: [number, any] = useState(1)
 
@@ -102,42 +102,42 @@ export const MainTable = () => {
 		switch (selectedTestArea) {
 			case TestArea.LISTENING: {
 				setTestAreaString(TestArea.LISTENING)
-				setACTFLContentOne(ACTFLContentListening[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentListening[levelIndex])
-				setACTFLContentThree(ACTFLContentListening[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentListening[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentListening[levelIndex])
-				setCEFRLContentThree(CEFRLContentListening[levelIndex + 1])
+				setACTFLContentOne(ACTFLContentListeningRichText[levelIndex - 1])
+				setACTFLContentTwo(ACTFLContentListeningRichText[levelIndex])
+				setACTFLContentThree(ACTFLContentListeningRichText[levelIndex + 1])
+				setCEFRLContentOne(CEFRLContentListeningRichText[levelIndex - 1])
+				setCEFRLContentTwo(CEFRLContentListeningRichText[levelIndex])
+				setCEFRLContentThree(CEFRLContentListeningRichText[levelIndex + 1])
 				break
 			}
 			case TestArea.READING: {
 				setTestAreaString(TestArea.READING)
-				setACTFLContentOne(ACTFLContentReading[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentReading[levelIndex])
-				setACTFLContentThree(ACTFLContentReading[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentReading[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentReading[levelIndex])
-				setCEFRLContentThree(CEFRLContentReading[levelIndex + 1])
+				setACTFLContentOne(ACTFLContentReadingRichText[levelIndex - 1])
+				setACTFLContentTwo(ACTFLContentReadingRichText[levelIndex])
+				setACTFLContentThree(ACTFLContentReadingRichText[levelIndex + 1])
+				setCEFRLContentOne(CEFRLContentReadingRichText[levelIndex - 1])
+				setCEFRLContentTwo(CEFRLContentReadingRichText[levelIndex])
+				setCEFRLContentThree(CEFRLContentReadingRichText[levelIndex + 1])
 				break
 			}
 			case TestArea.SPEAKING: {
 				setTestAreaString(TestArea.SPEAKING)
-				setACTFLContentOne(ACTFLContentSpeaking[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentSpeaking[levelIndex])
-				setACTFLContentThree(ACTFLContentSpeaking[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentSpeaking[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentSpeaking[levelIndex])
-				setCEFRLContentThree(CEFRLContentSpeaking[levelIndex + 1])
+				setACTFLContentOne(ACTFLContentSpeakingRichText[levelIndex - 1])
+				setACTFLContentTwo(ACTFLContentSpeakingRichText[levelIndex])
+				setACTFLContentThree(ACTFLContentSpeakingRichText[levelIndex + 1])
+				setCEFRLContentOne(CEFRLContentSpeakingRichText[levelIndex - 1])
+				setCEFRLContentTwo(CEFRLContentSpeakingRichText[levelIndex])
+				setCEFRLContentThree(CEFRLContentSpeakingRichText[levelIndex + 1])
 				break
 			}
 			case TestArea.WRITING: {
 				setTestAreaString(TestArea.WRITING)
-				setACTFLContentOne(ACTFLContentWriting[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentWriting[levelIndex])
-				setACTFLContentThree(ACTFLContentWriting[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentWriting[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentWriting[levelIndex])
-				setCEFRLContentThree(CEFRLContentWriting[levelIndex + 1])
+				setACTFLContentOne(ACTFLContentWritingRichText[levelIndex - 1])
+				setACTFLContentTwo(ACTFLContentWritingRichText[levelIndex])
+				setACTFLContentThree(ACTFLContentWritingRichText[levelIndex + 1])
+				setCEFRLContentOne(CEFRLContentWritingRichText[levelIndex - 1])
+				setCEFRLContentTwo(CEFRLContentWritingRichText[levelIndex])
+				setCEFRLContentThree(CEFRLContentWritingRichText[levelIndex + 1])
 				break
 			}
 			default: {

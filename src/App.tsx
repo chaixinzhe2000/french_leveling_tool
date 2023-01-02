@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ChakraProvider} from "@chakra-ui/react"
+import { ChakraProvider, LightMode } from "@chakra-ui/react"
 import { SelectorList } from "./components/SelectorList/SelectorList"
 import { RecoilRoot } from "recoil"
 import { ACTFLLevelTable } from "./components/LevelTable/ACTFLLevelTable"
@@ -10,20 +10,22 @@ import { MainTable } from "./components/MainTable/MainTable"
 
 export const App = () => (
 	<ChakraProvider>
-		<RecoilRoot>
-			<div className="root-wrapper">
-				<div className="header-wrapper">
-					<SelectorList />
-					<ModeSelector />
-				</div>
-				<div className="table-flex">
-					<div>
-						<ACTFLLevelTable />
-						<CEFRLLevelTable />
+		<LightMode>
+			<RecoilRoot>
+				<div className="root-wrapper">
+					<div className="header-wrapper">
+						<SelectorList />
+						<ModeSelector />
 					</div>
-					<MainTable />
-				</div>   
-			</div>
-		</RecoilRoot>
+					<div className="table-flex">
+						<div>
+							<ACTFLLevelTable />
+							<CEFRLLevelTable />
+						</div>
+						<MainTable />
+					</div>
+				</div>
+			</RecoilRoot>
+		</LightMode>
 	</ChakraProvider>
 )
