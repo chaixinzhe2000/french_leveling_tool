@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
-import { useRecoilValue } from "recoil"
-import { ACTFLLevelState, TestAreaState } from "../atom"
-import { ACTFLContentListeningRichText, ACTFLContentReadingRichText, ACTFLContentSpeakingRichText, ACTFLContentWritingRichText, CEFRLContentListeningRichText, CEFRLContentReadingRichText, CEFRLContentSpeakingRichText, CEFRLContentWritingRichText } from "../content"
+import { useRecoilState, useRecoilValue } from "recoil"
+import { ACTFLLevelState, isAlternativeSubCategoryState, TestAreaState } from "../atom"
+import { ACTFLContentListeningRichTextAlternative, ACTFLContentListeningRichTextMain, ACTFLContentReadingRichTextAlternative, ACTFLContentReadingRichTextMain, ACTFLContentSpeakingRichTextAlternative, ACTFLContentSpeakingRichTextMain, ACTFLContentWritingRichTextAlternative, ACTFLContentWritingRichTextMain, CEFRLContentListeningRichTextAlternative, CEFRLContentListeningRichTextMain, CEFRLContentReadingRichTextAlternative, CEFRLContentReadingRichTextMain, CEFRLContentSpeakingRichTextAlternative, CEFRLContentSpeakingRichTextMain, CEFRLContentWritingRichTextAlternative, CEFRLContentWritingRichTextMain } from "../content"
 import { ACTFLLevel, TestArea } from "../levels"
 import "./styles.css"
 
@@ -10,6 +10,7 @@ export const MainTable = () => {
 
 	const selectedACTFLLevel = useRecoilValue(ACTFLLevelState)
 	const selectedTestArea = useRecoilValue(TestAreaState)
+	const [isAlternativeSubCategory, setIsAlternativeSubCategory] = useRecoilState(isAlternativeSubCategoryState)
 
 	const [testAreaString, setTestAreaString]: [string, any] = useState(selectedTestArea)
 
@@ -52,6 +53,45 @@ export const MainTable = () => {
 		"C2",
 		"N/A"
 	]
+
+	const handleIsAlternativeSubCategoryChange = (isAlternative: boolean) => {
+		setIsAlternativeSubCategory(isAlternative)
+	}
+
+	const getAssessmentAreaHeadingMain = () => {
+		switch (selectedTestArea) {
+			case TestArea.LISTENING: {
+				return "✵ Interpretive Communication / ★ Listening"
+			}
+			case TestArea.READING: {
+				return "✵ Interpretive Communication / ★ Reading"
+			}
+			case TestArea.SPEAKING: {
+				return "✵ Interpersonal Communication / ★ Spoken Interaction"
+			}
+			case TestArea.WRITING: {
+				return "✵ Presentational Communication / ★ Writing"
+			}
+		}
+	}
+
+	const getAssessmentAreaHeadingAlternative = () => {
+		switch (selectedTestArea) {
+			case TestArea.LISTENING: {
+				return "✵ Interpersonal Communication / ★ Listening"
+			}
+			case TestArea.READING: {
+				return "✵ Interpersonal Communication / ★ Reading"
+			}
+			case TestArea.SPEAKING: {
+				return "✵ Presentational Communication / ★ Spoken Production"
+			}
+			case TestArea.WRITING: {
+				return "✵ Interpersonal Communication / ★ Writing"
+			}
+		}
+	}
+
 
 	const setLevel = () => {
 		switch (selectedACTFLLevel) {
@@ -99,52 +139,102 @@ export const MainTable = () => {
 	}
 
 	useEffect(() => {
-		switch (selectedTestArea) {
-			case TestArea.LISTENING: {
-				setTestAreaString(TestArea.LISTENING)
-				setACTFLContentOne(ACTFLContentListeningRichText[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentListeningRichText[levelIndex])
-				setACTFLContentThree(ACTFLContentListeningRichText[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentListeningRichText[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentListeningRichText[levelIndex])
-				setCEFRLContentThree(CEFRLContentListeningRichText[levelIndex + 1])
-				break
+		// main 
+		if (!isAlternativeSubCategory) {
+			switch (selectedTestArea) {
+				case TestArea.LISTENING: {
+					setTestAreaString(TestArea.LISTENING)
+					setACTFLContentOne(ACTFLContentListeningRichTextMain[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentListeningRichTextMain[levelIndex])
+					setACTFLContentThree(ACTFLContentListeningRichTextMain[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentListeningRichTextMain[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentListeningRichTextMain[levelIndex])
+					setCEFRLContentThree(CEFRLContentListeningRichTextMain[levelIndex + 1])
+					break
+				}
+				case TestArea.READING: {
+					setTestAreaString(TestArea.READING)
+					setACTFLContentOne(ACTFLContentReadingRichTextMain[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentReadingRichTextMain[levelIndex])
+					setACTFLContentThree(ACTFLContentReadingRichTextMain[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentReadingRichTextMain[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentReadingRichTextMain[levelIndex])
+					setCEFRLContentThree(CEFRLContentReadingRichTextMain[levelIndex + 1])
+					break
+				}
+				case TestArea.SPEAKING: {
+					setTestAreaString(TestArea.SPEAKING)
+					setACTFLContentOne(ACTFLContentSpeakingRichTextMain[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentSpeakingRichTextMain[levelIndex])
+					setACTFLContentThree(ACTFLContentSpeakingRichTextMain[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentSpeakingRichTextMain[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentSpeakingRichTextMain[levelIndex])
+					setCEFRLContentThree(CEFRLContentSpeakingRichTextMain[levelIndex + 1])
+					break
+				}
+				case TestArea.WRITING: {
+					setTestAreaString(TestArea.WRITING)
+					setACTFLContentOne(ACTFLContentWritingRichTextMain[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentWritingRichTextMain[levelIndex])
+					setACTFLContentThree(ACTFLContentWritingRichTextMain[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentWritingRichTextMain[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentWritingRichTextMain[levelIndex])
+					setCEFRLContentThree(CEFRLContentWritingRichTextMain[levelIndex + 1])
+					break
+				}
+				default: {
+					break
+				}
 			}
-			case TestArea.READING: {
-				setTestAreaString(TestArea.READING)
-				setACTFLContentOne(ACTFLContentReadingRichText[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentReadingRichText[levelIndex])
-				setACTFLContentThree(ACTFLContentReadingRichText[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentReadingRichText[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentReadingRichText[levelIndex])
-				setCEFRLContentThree(CEFRLContentReadingRichText[levelIndex + 1])
-				break
-			}
-			case TestArea.SPEAKING: {
-				setTestAreaString(TestArea.SPEAKING)
-				setACTFLContentOne(ACTFLContentSpeakingRichText[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentSpeakingRichText[levelIndex])
-				setACTFLContentThree(ACTFLContentSpeakingRichText[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentSpeakingRichText[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentSpeakingRichText[levelIndex])
-				setCEFRLContentThree(CEFRLContentSpeakingRichText[levelIndex + 1])
-				break
-			}
-			case TestArea.WRITING: {
-				setTestAreaString(TestArea.WRITING)
-				setACTFLContentOne(ACTFLContentWritingRichText[levelIndex - 1])
-				setACTFLContentTwo(ACTFLContentWritingRichText[levelIndex])
-				setACTFLContentThree(ACTFLContentWritingRichText[levelIndex + 1])
-				setCEFRLContentOne(CEFRLContentWritingRichText[levelIndex - 1])
-				setCEFRLContentTwo(CEFRLContentWritingRichText[levelIndex])
-				setCEFRLContentThree(CEFRLContentWritingRichText[levelIndex + 1])
-				break
-			}
-			default: {
-				break
+			// alternative
+		} else {
+			switch (selectedTestArea) {
+				case TestArea.LISTENING: {
+					setTestAreaString(TestArea.LISTENING)
+					setACTFLContentOne(ACTFLContentListeningRichTextAlternative[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentListeningRichTextAlternative[levelIndex])
+					setACTFLContentThree(ACTFLContentListeningRichTextAlternative[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentListeningRichTextAlternative[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentListeningRichTextAlternative[levelIndex])
+					setCEFRLContentThree(CEFRLContentListeningRichTextAlternative[levelIndex + 1])
+					break
+				}
+				case TestArea.READING: {
+					setTestAreaString(TestArea.READING)
+					setACTFLContentOne(ACTFLContentReadingRichTextAlternative[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentReadingRichTextAlternative[levelIndex])
+					setACTFLContentThree(ACTFLContentReadingRichTextAlternative[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentReadingRichTextAlternative[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentReadingRichTextAlternative[levelIndex])
+					setCEFRLContentThree(CEFRLContentReadingRichTextAlternative[levelIndex + 1])
+					break
+				}
+				case TestArea.SPEAKING: {
+					setTestAreaString(TestArea.SPEAKING)
+					setACTFLContentOne(ACTFLContentSpeakingRichTextAlternative[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentSpeakingRichTextAlternative[levelIndex])
+					setACTFLContentThree(ACTFLContentSpeakingRichTextAlternative[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentSpeakingRichTextAlternative[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentSpeakingRichTextAlternative[levelIndex])
+					setCEFRLContentThree(CEFRLContentSpeakingRichTextAlternative[levelIndex + 1])
+					break
+				}
+				case TestArea.WRITING: {
+					setTestAreaString(TestArea.WRITING)
+					setACTFLContentOne(ACTFLContentWritingRichTextAlternative[levelIndex - 1])
+					setACTFLContentTwo(ACTFLContentWritingRichTextAlternative[levelIndex])
+					setACTFLContentThree(ACTFLContentWritingRichTextAlternative[levelIndex + 1])
+					setCEFRLContentOne(CEFRLContentWritingRichTextAlternative[levelIndex - 1])
+					setCEFRLContentTwo(CEFRLContentWritingRichTextAlternative[levelIndex])
+					setCEFRLContentThree(CEFRLContentWritingRichTextAlternative[levelIndex + 1])
+					break
+				}
+				default: {
+					break
+				}
 			}
 		}
-	}, [levelIndex, selectedTestArea])
+	}, [levelIndex, selectedTestArea, isAlternativeSubCategory])
 
 	useEffect(() => {
 		setLevel()
@@ -155,14 +245,22 @@ export const MainTable = () => {
 		<table className="tg table-wrapper">
 			<thead>
 				<tr>
-					<th className="tg-wp8o main-table-header" colSpan={3}>
-						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>✵ Interpersonal Communication / ★ Spoken Interaction</p>
+					<th
+						className={`main-table-header ${!isAlternativeSubCategory && "selected-cell"}`}
+						colSpan={isAlternativeSubCategory ? 1 : 2}
+						onClick={() => { handleIsAlternativeSubCategoryChange(false) }}>
+						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingMain()}</p>
+					</th>
+					<th className={`main-table-header ${isAlternativeSubCategory && "selected-cell"}`}
+						colSpan={isAlternativeSubCategory ? 2 : 1}
+						onClick={() => { handleIsAlternativeSubCategoryChange(true) }}>
+						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingAlternative()}</p>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td className="tg-mqa1 actfl-header" colSpan={3}>✵ <b>ACTFL</b> (<b>A</b>merican <b>C</b>ouncil on the <b>T</b>eaching of <b>F</b>oreign <b>L</b>anguages)</td>
+					<td className="tg-mqa1 actfl-header" colSpan={6}>✵ <b>ACTFL</b> (<b>A</b>merican <b>C</b>ouncil on the <b>T</b>eaching of <b>F</b>oreign <b>L</b>anguages)</td>
 				</tr>
 				<tr>
 					<td className="tg-wp8o actfl-level-one">{ACTFLLevelHeadingArray[levelIndex - 1]}</td>

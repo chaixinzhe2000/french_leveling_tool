@@ -11,6 +11,11 @@ export const CEFRLLevelState = atom({
 	default: CEFRLLevel.BREAKTHROUGH // default value (aka initial value)
 });
 
+export const isAlternativeSubCategoryState = atom({
+	key: 'isAlternativeSubCategoryState', // unique ID (with respect to other atoms/selectors)
+	default: false // default value (aka initial value)
+});
+
 export const TestAreaState = atom({
 	key: 'TestAreaState',
 	default: TestArea.READING

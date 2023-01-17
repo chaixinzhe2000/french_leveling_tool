@@ -33,6 +33,7 @@
 	height: 18px;
 	text-align: center;
 	padding: 0;
+	width: 33.3%;
 }
 
 .cefrl-level-one {
@@ -42,13 +43,10 @@
 	height: 18px;
 	text-align: center;
 	padding: 0;
+	width: 33.3%;
 }
 
 .selected-cell {
 	outline: 4px solid black;
 	font-weight: 700;
-}
-
-.tg-wp8o {
-	width: 33.33%;
 }
