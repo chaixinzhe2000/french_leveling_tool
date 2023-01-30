@@ -26,7 +26,7 @@ export const App = () => (
 						<MainTable />
 					</div>
 					<div className="credits">
-						Built at&nbsp;<b>Brown</b>&nbsp;by Nuj Naguleswaran and&nbsp;<a href="https://www.xchai.me" rel="noreferrer" target="_blank">Xinzhe Chai</a>
+						<b>Built at&nbsp;Brown</b>&nbsp;by&nbsp;<a href="https://vivo.brown.edu/display/sgaillar" rel="noreferrer" target="_blank">Prof. Stephanie Gaillard</a>, Nuj Naguleswaran, and&nbsp;<a href="https://www.xchai.me" rel="noreferrer" target="_blank">Xinzhe Chai</a>
 					</div>
 				</div>
 			</RecoilRoot>
