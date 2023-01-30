@@ -25,3 +25,19 @@ body {
 	display: flex;
 	gap: 30px;
 }
+
+.header {
+	font-family: "Libre Franklin", sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+.credits {
+	font-family: "DM Sans", sans-serif;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}

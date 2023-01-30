@@ -61,16 +61,16 @@ export const MainTable = () => {
 	const getAssessmentAreaHeadingMain = () => {
 		switch (selectedTestArea) {
 			case TestArea.LISTENING: {
-				return "✵ Interpretive Communication / ★ Listening"
+				return <>✵ InterPRETIVE Communication<br />★ Listening</>
 			}
 			case TestArea.READING: {
-				return "✵ Interpretive Communication / ★ Reading"
+				return <>✵ InterPRETIVE Communication<br />★ Reading</>
 			}
 			case TestArea.SPEAKING: {
-				return "✵ Interpersonal Communication / ★ Spoken Interaction"
+				return <>✵ InterPERSONAL Communication<br />★ Spoken Interaction</>
 			}
 			case TestArea.WRITING: {
-				return "✵ Presentational Communication / ★ Writing"
+				return <>✵ Presentational Communication<br />★ Writing</>
 			}
 		}
 	}
@@ -78,16 +78,16 @@ export const MainTable = () => {
 	const getAssessmentAreaHeadingAlternative = () => {
 		switch (selectedTestArea) {
 			case TestArea.LISTENING: {
-				return "✵ Interpersonal Communication / ★ Listening"
+				return <>✵ InterPERSONAL Communication<br />★ Listening</>
 			}
 			case TestArea.READING: {
-				return "✵ Interpersonal Communication / ★ Reading"
+				return <>✵ InterPERSONAL Communication<br />★ Reading</>
 			}
 			case TestArea.SPEAKING: {
-				return "✵ Presentational Communication / ★ Spoken Production"
+				return <>✵ Presentational Comms<br />★ Spoken Production</>
 			}
 			case TestArea.WRITING: {
-				return "✵ Interpersonal Communication / ★ Writing"
+				return <>✵ InterPERSONAL Communication<br />★ Writing</>
 			}
 		}
 	}
@@ -242,50 +242,54 @@ export const MainTable = () => {
 	}, [selectedACTFLLevel])
 
 	return (
-		<table className="tg table-wrapper">
-			<thead>
+		<div>
+			<table className="tg table-wrapper">
 				<tr>
 					<th
 						className={`main-table-header ${!isAlternativeSubCategory && "selected-cell"}`}
-						colSpan={isAlternativeSubCategory ? 1 : 2}
+						colSpan={1}
+						style={{ paddingLeft: 15 }}
 						onClick={() => { handleIsAlternativeSubCategoryChange(false) }}>
-						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingMain()}</p>
+						{testAreaString}<br /><p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingMain()}</p>
 					</th>
 					<th className={`main-table-header ${isAlternativeSubCategory && "selected-cell"}`}
-						colSpan={isAlternativeSubCategory ? 2 : 1}
+						colSpan={1}
+						style={{ paddingLeft: 15 }}
 						onClick={() => { handleIsAlternativeSubCategoryChange(true) }}>
-						{testAreaString} — <p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingAlternative()}</p>
+						{testAreaString}<br /><p style={{ display: "inline", fontWeight: 500 }}>{getAssessmentAreaHeadingAlternative()}</p>
 					</th>
 				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td className="tg-mqa1 actfl-header" colSpan={6}>✵ <b>ACTFL</b> (<b>A</b>merican <b>C</b>ouncil on the <b>T</b>eaching of <b>F</b>oreign <b>L</b>anguages)</td>
-				</tr>
-				<tr>
-					<td className="tg-wp8o actfl-level-one">{ACTFLLevelHeadingArray[levelIndex - 1]}</td>
-					<td className="tg-wp8o actfl-level-one selected-cell">{ACTFLLevelHeadingArray[levelIndex]}</td>
-					<td className="tg-baqh actfl-level-one">{ACTFLLevelHeadingArray[levelIndex + 1]}</td>
-				</tr>
-				<tr>
-					<td className="tg-73oq">{ACTFLContentOne}</td>
-					<td className="tg-73oq">{ACTFLContentTwo}</td>
-					<td className="tg-73oq">{ACTFLContentThree}</td>
-				</tr>
-				<tr>
-					<td className="tg-mqa1 cefrl-header" colSpan={3}>★ <b>CEFRL</b> (<b>C</b>ommon <b>E</b>uropean <b>F</b>ramework of <b>R</b>eference for <b>L</b>anguages)</td>
-				</tr>
-				<tr>
-					<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex - 1]}</td>
-					<td className="tg-baqh cefrl-level-one selected-cell">{CEFRLLevelHeadingArray[levelIndex]}</td>
-					<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex + 1]}</td>
-				</tr>
-				<tr>
-					<td className="tg-73oq">{CEFRLContentOne}</td>
-					<td className="tg-73oq">{CEFRLContentTwo}</td>
-					<td className="tg-73oq">{CEFRLContentThree}</td>
-				</tr>
-			</tbody>
-		</table>
+			</table>
+			<table className="tg table-wrapper" style={{ marginTop: 10 }}>
+				<tbody>
+					<tr>
+						<td className="tg-mqa1 actfl-header" colSpan={6}>✵ <b>ACTFL</b> (<b>A</b>merican <b>C</b>ouncil on the <b>T</b>eaching of <b>F</b>oreign <b>L</b>anguages)</td>
+					</tr>
+					<tr>
+						<td className="tg-wp8o actfl-level-one">{ACTFLLevelHeadingArray[levelIndex - 1]}</td>
+						<td className="tg-wp8o actfl-level-one selected-cell">{ACTFLLevelHeadingArray[levelIndex]}</td>
+						<td className="tg-baqh actfl-level-one">{ACTFLLevelHeadingArray[levelIndex + 1]}</td>
+					</tr>
+					<tr>
+						<td className="tg-73oq">{ACTFLContentOne}</td>
+						<td className="tg-73oq">{ACTFLContentTwo}</td>
+						<td className="tg-73oq">{ACTFLContentThree}</td>
+					</tr>
+					<tr>
+						<td className="tg-mqa1 cefrl-header" colSpan={3}>★ <b>CEFRL</b> (<b>C</b>ommon <b>E</b>uropean <b>F</b>ramework of <b>R</b>eference for <b>L</b>anguages)</td>
+					</tr>
+					<tr>
+						<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex - 1]}</td>
+						<td className="tg-baqh cefrl-level-one selected-cell">{CEFRLLevelHeadingArray[levelIndex]}</td>
+						<td className="tg-baqh cefrl-level-one">{CEFRLLevelHeadingArray[levelIndex + 1]}</td>
+					</tr>
+					<tr>
+						<td className="tg-73oq">{CEFRLContentOne}</td>
+						<td className="tg-73oq">{CEFRLContentTwo}</td>
+						<td className="tg-73oq">{CEFRLContentThree}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	)
 }

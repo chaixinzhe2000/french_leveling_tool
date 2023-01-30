@@ -7,6 +7,9 @@
 	font-size: 20px;
 	background-color: #d0d0ce;
 	cursor: pointer;
+	height: 80px;
+	width: 50%;
+	text-align: left;
 }
 
 .actfl-header {
